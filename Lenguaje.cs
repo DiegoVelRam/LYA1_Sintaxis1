@@ -133,6 +133,11 @@ namespace LYA1_Sintaxis1
             match("printf");
             match("(");
             match(Tipos.Cadena);
+            if(getContenido() == ",")
+            {
+                match(",");
+                match(Tipos.Identificador);
+            }
             match(")");
             match(";");
         }
@@ -142,6 +147,9 @@ namespace LYA1_Sintaxis1
             match("scanf");
             match("(");
             match(Tipos.Cadena);
+            match(",");
+            match("&");
+            match(Tipos.Identificador);
             match(")");
             match(";");
         }
