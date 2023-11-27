@@ -10,7 +10,7 @@ namespace LYA1_Sintaxis1
     {
         const int F = -1;
         const int E = -2;
-        int linea;
+        public int linea = 1;
         private StreamReader archivo;
         protected StreamWriter log;
 
@@ -173,6 +173,9 @@ namespace LYA1_Sintaxis1
                 {
                     // si el caracter fue enter incrementa la linea
                     archivo.Read();
+                    if (c == '\n'){
+                        linea++;
+                    }
                     if (estado > 0)
                     {
                         buffer += c;

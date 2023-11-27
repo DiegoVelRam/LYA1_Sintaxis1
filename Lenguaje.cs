@@ -158,17 +158,28 @@ namespace LYA1_Sintaxis1
         }
 
         //Asignacion -> Identificador (++ | -- | += | -= | /= | %= ) | (= Expresion);
+       /* Identificador IncrementoTermino Expresion;
+                     Identificador IncrementoFactor Expresion;
+                     Identificador = Expresion();*/
         private void Asignacion()
         {
             match(Tipos.Identificador);
             
             if (getClasificacion() == Tipos.IncrementoTermino)
             {
-                match()
+                if(getContenido()== "++" ||  getContenido()== "--")
+                {
+                    match(Tipos.IncrementoTermino );
+                }
+                else {
+                    match(Tipos.IncrementoTermino );
+                    Expresion();
+                }
             }
             else if (getClasificacion() == Tipos.IncrementoFactor)
             {
-
+                match(Tipos.IncrementoFactor);
+                Expresion();
             }
             else
             {
@@ -216,20 +227,20 @@ namespace LYA1_Sintaxis1
         {
 
         }
-        //Incremento -> Identificador ++ | --
+        //Incremento -> Identificador ++ | -- 
         private void Incremento()
         {
             match(Tipos.Identificador);
 
-            if(getContenido() == "+")
+            if(getContenido() == "++")
             {
-                match("+");
-                Incremento();
+                match("++");
+                
             }
-            else(getContenido() == "-")
+            else if (getContenido() == "--")
             {
-                match("-");
-                Incremento();
+                match("--");
+               
             }
         }
         //Main      -> void main() bloqueInstrucciones
