@@ -8,8 +8,11 @@ using System.Threading.Tasks;
     Requerimiento 2: Scanf -> scanf(cadena,&Identificador);
     Requerimiento 3: Agregar a la Asignacion +=, -=, *=. /=, %=
                      Ejemplo:
+                     Identificador ++
+                     Identificador --
                      Identificador IncrementoTermino Expresion;
                      Identificador IncrementoFactor Expresion;
+                     Identificador = Expresion();
     Requerimiento 4: Agregar el else optativo al if
     Requerimiento 5: Indicar el número de linea de los errores
 */
@@ -154,17 +157,14 @@ namespace LYA1_Sintaxis1
             match(";");
         }
 
-        //Asignacion -> Identificador (++ | --) | (= Expresion);
+        //Asignacion -> Identificador (++ | -- | += | -= | /= | %= ) | (= Expresion);
         private void Asignacion()
         {
             match(Tipos.Identificador);
-            if (getClasificacion() == Tipos.OperadorTermino)
+            
+            if (getClasificacion() == Tipos.IncrementoTermino)
             {
-                match(Tipos.OperadorTermino);
-            }
-            else if (getClasificacion() == Tipos.IncrementoTermino)
-            {
-
+                match()
             }
             else if (getClasificacion() == Tipos.IncrementoFactor)
             {
@@ -219,7 +219,18 @@ namespace LYA1_Sintaxis1
         //Incremento -> Identificador ++ | --
         private void Incremento()
         {
+            match(Tipos.Identificador);
 
+            if(getContenido() == "+")
+            {
+                match("+");
+                Incremento();
+            }
+            else(getContenido() == "-")
+            {
+                match("-");
+                Incremento();
+            }
         }
         //Main      -> void main() bloqueInstrucciones
         private void Main()
