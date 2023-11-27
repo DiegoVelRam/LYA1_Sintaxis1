@@ -228,16 +228,16 @@ namespace LYA1_Sintaxis1
         {
             match("for");
             match("(");
-            match("Asignacion");
+            Asignacion();
             Condicion();
             match(";");
-            match("Incremento");
+            Incremento();
             match(")");
             if (getContenido() == "{")
             {
                 bloqueInstrucciones();
             }
-            else
+            else 
             {
                 Instruccion();
             }
