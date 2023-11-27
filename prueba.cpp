@@ -3,7 +3,7 @@
 
 int altura,i,j;
 float x,y;
-
+h
 
 void main()
 {
