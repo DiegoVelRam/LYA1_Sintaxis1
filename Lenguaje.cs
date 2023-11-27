@@ -136,7 +136,7 @@ namespace LYA1_Sintaxis1
             match("printf");
             match("(");
             match(Tipos.Cadena);
-            if(getContenido() == ",")
+            if (getContenido() == ",")
             {
                 match(",");
                 match(Tipos.Identificador);
@@ -158,21 +158,22 @@ namespace LYA1_Sintaxis1
         }
 
         //Asignacion -> Identificador (++ | -- | += | -= | /= | %= ) | (= Expresion);
-       /* Identificador IncrementoTermino Expresion;
-                     Identificador IncrementoFactor Expresion;
-                     Identificador = Expresion();*/
+        /* Identificador IncrementoTermino Expresion;
+                      Identificador IncrementoFactor Expresion;
+                      Identificador = Expresion();*/
         private void Asignacion()
         {
             match(Tipos.Identificador);
-            
+
             if (getClasificacion() == Tipos.IncrementoTermino)
             {
-                if(getContenido()== "++" ||  getContenido()== "--")
+                if (getContenido() == "++" || getContenido() == "--")
                 {
-                    match(Tipos.IncrementoTermino );
+                    match(Tipos.IncrementoTermino);
                 }
-                else {
-                    match(Tipos.IncrementoTermino );
+                else
+                {
+                    match(Tipos.IncrementoTermino);
                     Expresion();
                 }
             }
@@ -225,22 +226,36 @@ namespace LYA1_Sintaxis1
         //For -> for(Asignacion Condicion; Incremento) Bloque de instruccones | Intruccion 
         private void For()
         {
-
+            match("for");
+            match("(");
+            match("Asignacion");
+            Condicion();
+            match(";");
+            match("Incremento");
+            match(")");
+            if (getContenido() == "{")
+            {
+                bloqueInstrucciones();
+            }
+            else
+            {
+                Instruccion();
+            }
         }
         //Incremento -> Identificador ++ | -- 
         private void Incremento()
         {
             match(Tipos.Identificador);
 
-            if(getContenido() == "++")
+            if (getContenido() == "++")
             {
                 match("++");
-                
+
             }
             else if (getContenido() == "--")
             {
                 match("--");
-               
+
             }
         }
         //Main      -> void main() bloqueInstrucciones

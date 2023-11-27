@@ -3,7 +3,6 @@
 
 int altura,i,j;
 float x,y;
-h
 
 void main()
 {
@@ -17,5 +16,14 @@ void main()
     
     printf("\nValor de altura = ");
     scanf("%d",&altura);
+
+    for (i = 1; i<=altura; i++)
+    {
+        for (j = 1; j<=i; j++)
+        {
+            printf("",j);
+        }
+        printf("\n");
+    }
 
 }
