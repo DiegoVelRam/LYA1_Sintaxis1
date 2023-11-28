@@ -23,7 +23,7 @@ namespace LYA1_Sintaxis1
             }
             else
             {
-                throw new Error("Sintaxis: Se espera un " + espera + " en renglon " + linea ,log);
+                throw new Error("Sintaxis: Se espera un " + espera + " en renglon " + linea + " " + getContenido(),log);
             }
         }
         public void match(Tipos espera)
@@ -34,7 +34,7 @@ namespace LYA1_Sintaxis1
             }
             else
             {
-                throw new Error("Sintaxis: Se espera un " + espera + " en renglon " + linea,log);
+                throw new Error("Sintaxis: Se espera un " + espera + " en renglon " + linea + " " + getContenido(),log);
             }
         }
     }

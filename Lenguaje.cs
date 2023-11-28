@@ -249,11 +249,12 @@ namespace LYA1_Sintaxis1
             else
             {
                 Instruccion();
-                While();
-                match("(");
-                Condicion();
-                match(")");
             }
+            While();
+            match("(");
+            Condicion();
+            match(")");
+            match(";");
         }
         //For -> for(Asignacion Condicion; Incremento) Bloque de instruccones | Intruccion 
         private void For()

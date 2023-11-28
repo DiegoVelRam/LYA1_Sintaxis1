@@ -30,7 +30,11 @@ void main()
         printf("-");
         i++;
     }
-    while (i<altura*2);
+    while (i<altura*2)
+    
+    
+    ;
+
     printf("\n");
     for (i = 1; i<=altura; i++)
     {
