@@ -25,5 +25,11 @@ void main()
         }
         printf("\n");
     }
+    i = 0;
+    do
+    {
+        printf("-");
+        i++;
+    }
 
 }
