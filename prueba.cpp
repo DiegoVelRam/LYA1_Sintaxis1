@@ -31,5 +31,17 @@ void main()
         printf("-");
         i++;
     }
+    while (i<altura*2);
+    printf("\n");
+    for (i = 1; i<=altura; i++)
+    {
+        j = 1;
+        while (j<=i)
+        { 
+            printf("",j);
+            j++;
+        }
+        printf("\n");
+    }
 
 }
