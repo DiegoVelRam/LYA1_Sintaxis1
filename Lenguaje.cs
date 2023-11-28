@@ -216,7 +216,18 @@ namespace LYA1_Sintaxis1
         //While -> while(Condicion) bloque de instrucciones | instruccion
         private void While()
         {
-            
+            match("while");
+            match("(");
+            Condicion();
+            match(")");
+            if (getContenido() == "{")
+            {
+                bloqueInstrucciones();
+            }
+            else
+            {
+                Instruccion();
+            }         
         }
         //Do -> do bloque de instrucciones | instruccion while(Condicion)
         private void Do()
@@ -234,8 +245,6 @@ namespace LYA1_Sintaxis1
                 Condicion();
                 match(")");
             }
-
-
         }
         //For -> for(Asignacion Condicion; Incremento) Bloque de instruccones | Intruccion 
         private void For()
