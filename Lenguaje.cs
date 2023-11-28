@@ -205,6 +205,15 @@ namespace LYA1_Sintaxis1
             {
                 Instruccion();
             }
+            if (getContenido() == "else")
+            {
+                match("else");
+                bloqueInstrucciones();
+            }
+            else
+            {
+                Instruccion();
+            }
         }
         //Condicion -> Expresion operadoRelacional Expresion
         private void Condicion()
@@ -227,7 +236,7 @@ namespace LYA1_Sintaxis1
             else
             {
                 Instruccion();
-            }         
+            }
         }
         //Do -> do bloque de instrucciones | instruccion while(Condicion)
         private void Do()
@@ -260,7 +269,7 @@ namespace LYA1_Sintaxis1
             {
                 bloqueInstrucciones();
             }
-            else 
+            else
             {
                 Instruccion();
             }
