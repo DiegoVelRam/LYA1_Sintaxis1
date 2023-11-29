@@ -235,10 +235,11 @@ namespace LYA1_Sintaxis1
             }
             else
             {
-                Instruccion();
+                Instruccion();     
             }
+            
         }
-        //Do -> do bloque de instrucciones | instruccion while(Condicion)
+        //Do -> do bloque de instrucciones | instruccion while(Condicion);
         private void Do()
         {
             match("do");
@@ -250,7 +251,7 @@ namespace LYA1_Sintaxis1
             {
                 Instruccion();
             }
-            While();
+            match("while");
             match("(");
             Condicion();
             match(")");
