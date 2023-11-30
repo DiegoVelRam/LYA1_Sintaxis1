@@ -235,9 +235,9 @@ namespace LYA1_Sintaxis1
             }
             else
             {
-                Instruccion();     
+                Instruccion();
             }
-            
+
         }
         //Do -> do bloque de instrucciones | instruccion while(Condicion);
         private void Do()
@@ -251,6 +251,7 @@ namespace LYA1_Sintaxis1
             {
                 Instruccion();
             }
+            //commit
             match("while");
             match("(");
             Condicion();
